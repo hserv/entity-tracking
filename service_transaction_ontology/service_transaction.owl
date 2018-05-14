@@ -168,54 +168,15 @@
     
 
 
-    <!-- http://purl.org/dc/terms/Location -->
-
-    <owl:Class rdf:about="http://purl.org/dc/terms/Location"/>
-    
-
-
     <!-- http://www.w3.org/2003/01/geo/wgs84_pos#Point -->
 
     <owl:Class rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
     
 
 
-    <!-- http://www.w3.org/2006/vcard/ns#Address -->
-
-    <owl:Class rdf:about="http://www.w3.org/2006/vcard/ns#Address"/>
-    
-
-
-    <!-- http://www.w3.org/2006/vcard/ns#Email -->
-
-    <owl:Class rdf:about="http://www.w3.org/2006/vcard/ns#Email"/>
-    
-
-
-    <!-- http://www.w3.org/2006/vcard/ns#Individual -->
-
-    <owl:Class rdf:about="http://www.w3.org/2006/vcard/ns#Individual"/>
-    
-
-
-    <!-- http://www.w3.org/2006/vcard/ns#Voice -->
-
-    <owl:Class rdf:about="http://www.w3.org/2006/vcard/ns#Voice"/>
-    
-
-
     <!-- http://www.w3.org/ns/org#Site -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/org#Site"/>
-    
-
-
-    <!-- https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#Address -->
-
-    <owl:Class rdf:about="https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#Address">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/vcard/ns#Address"/>
-        <rdfs:comment xml:lang="en">This represents a referenceable street location of an item, using an addressing system other than geospatial terms, often with postal system terms.  airs:hasDescription is a description of the physical location or other information pertinent to this address, and hasExplanationForNoPhysicalAddress clarifies why the address doesn&apos;t have a physical presence.</rdfs:comment>
-    </owl:Class>
     
 
 
@@ -227,12 +188,6 @@
         <rdfs:label xml:lang="es">Agencia</rdfs:label>
         <rdfs:label xml:lang="en">Agency</rdfs:label>
     </owl:Class>
-    
-
-
-    <!-- https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#Document -->
-
-    <owl:Class rdf:about="https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#Document"/>
     
 
 
