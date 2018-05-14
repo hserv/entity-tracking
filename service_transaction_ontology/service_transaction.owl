@@ -1,19 +1,28 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://hslynk.com/ontologies/service_transaction#"
-     xml:base="http://hslynk.com/ontologies/service_transaction"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:terms="http://purl.org/dc/terms/"
+<rdf:RDF xmlns="http://www.semanticweb.org/owl/owlapi/turtle#"
+     xml:base="http://www.semanticweb.org/owl/owlapi/turtle"
+     xmlns:airs="https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:ns="http://www.w3.org/2006/vcard/ns#"
      xmlns:org="http://www.w3.org/ns/org#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
+     xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+     xmlns:dct="http://purl.org/dc/terms/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:oh="http://semweb.mmlab.be/ns/oh#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1"
      xmlns:dc="http://purl.org/dc/elements/1.1/">
-    <owl:Ontology rdf:about="http://hslynk.com/ontologies/service_transaction">
-        <owl:versionIRI rdf:resource="http://hslynk.com/ontologies/service_transaction/v0.1.0"/>
-        <owl:imports rdf:resource="https://raw.githubusercontent.com/airs-linked-data/lov/v0.0.11/src/airs_vocabulary.ttl#"/>
-        <owl:versionInfo xml:lang="en">v0.1.0</owl:versionInfo>
+    <owl:Ontology rdf:about="https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#">
+        <owl:versionIRI rdf:resource="https://raw.githubusercontent.com/airs-linked-data/lov/v0.0.11/src/airs_vocabulary.ttl#"/>
+        <dct:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
+        <owl:backwardCompatibleWith></owl:backwardCompatibleWith>
+        <dct:description xml:lang="en">The AIRS Linked Open Vocabulary is a way to describe human services information and referral (I&amp;R) concepts.  AIRS is the Alliance of Information and Referral Services (airs.org), which possesses over 1,000 member agencies primarily in the United States and Canada.  The AIRS LOV is based on the AIRS XML Schema, available at: https://airs-xml.googlecode.com/hg/tags/3.1/airs.xsd</dct:description>
+        <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Alliance of Information and Referral Services (AIRS) Linked Open Vocabulary</dc:title>
+        <owl:priorVersion></owl:priorVersion>
+        <dct:date>2015-02-15</dct:date>
+        <owl:priorVersion rdf:resource="https://raw.githubusercontent.com/airs-linked-data/lov/v0.0.10/src/airs_vocabulary.ttl#"/>
     </owl:Ontology>
     
 
@@ -21,7 +30,7 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
-    // Object Properties
+    // Annotation properties
     //
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
@@ -29,9 +38,122 @@
     
 
 
-    <!-- http://hslynk.com/ontologies/service_transaction#providedBy -->
+    <!-- http://purl.org/dc/elements/1.1/language -->
 
-    <owl:ObjectProperty rdf:about="http://hslynk.com/ontologies/service_transaction#providedBy"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/language"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#type -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+    
+
+
+    <!-- http://www.w3.org/2006/vcard/ns#country-name -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2006/vcard/ns#country-name"/>
+    
+
+
+    <!-- http://www.w3.org/2006/vcard/ns#hasRelated -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2006/vcard/ns#hasRelated"/>
+    
+
+
+    <!-- http://www.w3.org/2006/vcard/ns#hasTelephone -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2006/vcard/ns#hasTelephone"/>
+    
+
+
+    <!-- http://www.w3.org/2006/vcard/ns#locality -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2006/vcard/ns#locality"/>
+    
+
+
+    <!-- http://www.w3.org/2006/vcard/ns#organization-name -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2006/vcard/ns#organization-name"/>
+    
+
+
+    <!-- http://www.w3.org/2006/vcard/ns#postal-code -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2006/vcard/ns#postal-code"/>
+    
+
+
+    <!-- http://www.w3.org/2006/vcard/ns#region -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2006/vcard/ns#region"/>
+    
+
+
+    <!-- http://www.w3.org/2006/vcard/ns#street-address -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2006/vcard/ns#street-address"/>
+    
+
+
+    <!-- http://www.w3.org/2006/vcard/ns#url -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2006/vcard/ns#url"/>
+    
+
+
+    <!-- http://www.w3.org/ns/org#hasSite -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/org#hasSite"/>
+    
+
+
+    <!-- http://www.w3.org/ns/org#siteOf -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/org#siteOf"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#gYear -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#gYear"/>
     
 
 
@@ -46,15 +168,124 @@
     
 
 
-    <!-- http://hslynk.com/ontologies/service_transaction#ServiceTransaction -->
+    <!-- http://purl.org/dc/terms/Location -->
 
-    <owl:Class rdf:about="http://hslynk.com/ontologies/service_transaction#ServiceTransaction">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://hslynk.com/ontologies/service_transaction#providedBy"/>
-                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#SiteService"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+    <owl:Class rdf:about="http://purl.org/dc/terms/Location"/>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#Point -->
+
+    <owl:Class rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    
+
+
+    <!-- http://www.w3.org/2006/vcard/ns#Address -->
+
+    <owl:Class rdf:about="http://www.w3.org/2006/vcard/ns#Address"/>
+    
+
+
+    <!-- http://www.w3.org/2006/vcard/ns#Email -->
+
+    <owl:Class rdf:about="http://www.w3.org/2006/vcard/ns#Email"/>
+    
+
+
+    <!-- http://www.w3.org/2006/vcard/ns#Individual -->
+
+    <owl:Class rdf:about="http://www.w3.org/2006/vcard/ns#Individual"/>
+    
+
+
+    <!-- http://www.w3.org/2006/vcard/ns#Voice -->
+
+    <owl:Class rdf:about="http://www.w3.org/2006/vcard/ns#Voice"/>
+    
+
+
+    <!-- http://www.w3.org/ns/org#Site -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/org#Site"/>
+    
+
+
+    <!-- https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#Address -->
+
+    <owl:Class rdf:about="https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#Address">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/vcard/ns#Address"/>
+        <rdfs:comment xml:lang="en">This represents a referenceable street location of an item, using an addressing system other than geospatial terms, often with postal system terms.  airs:hasDescription is a description of the physical location or other information pertinent to this address, and hasExplanationForNoPhysicalAddress clarifies why the address doesn&apos;t have a physical presence.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#Agency -->
+
+    <owl:Class rdf:about="https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#Agency">
+        <rdfs:comment xml:lang="en">Agencies are organizations that offer services at locations. Agencies provide services directly or they may have &quot;child&quot; agencies that offer these services. Services are offered at sites that belong to an agency. Services are represented by the combination of taxonomy codes offered at a location; this idea is called a SiteService. To recap: Agencies don&apos;t provide services directly, they provide them through sites. For property &lt;http://www.w3.org/2006/vcard/ns:hasRelated&gt; This represents the agency contact.  1) Contact is the person at an Agency, or Site who will interface with the public or who has responsibility for the entity, like a site manager or director.</rdfs:comment>
+        <rdfs:label xml:lang="fr">Agence</rdfs:label>
+        <rdfs:label xml:lang="es">Agencia</rdfs:label>
+        <rdfs:label xml:lang="en">Agency</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#Document -->
+
+    <owl:Class rdf:about="https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#Document"/>
+    
+
+
+    <!-- https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#ResourceInfo -->
+
+    <owl:Class rdf:about="https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#ResourceInfo">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">For property &lt;http://www.w3.org/2006/vcard/ns:hasRelated&gt;, it indicates the person within each agency who has overall responsibility for updating the information about the agency, its sites and its services, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#Service -->
+
+    <owl:Class rdf:about="https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#Service">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">Akin to a &quot;Program&quot;, as in for example &quot;a homeless outreach program&quot;.  Can be delivered at many &quot;airs:Site[s]&quot;, and the nexus of the two is an airs:SiteService</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#ServiceArea -->
+
+    <owl:Class rdf:about="https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#ServiceArea">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">This is the geographic area served by the SiteService. This can be anything from a single neighborhood to an entire country. Types can also be mixed; perhaps one city and 6 nearby ZIP codes. In this case the required element would be City and there would be additional ZIP codes. A national 1-800 hotline would have one Country element.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#ServiceGroup -->
+
+    <owl:Class rdf:about="https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#ServiceGroup">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">Groups together multiple Services that are related somehow.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#Site -->
+
+    <owl:Class rdf:about="https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#Site">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#Site"/>
+        <rdfs:comment xml:lang="en">Sites are physical locations or none physical locations (a website or hotline). Site is used for two purposes. First, it is used by Agency to provide the location of the agency in Agency.AgencyLocation (note this type of Site would never have any SiteService children). Second, sites are also the location where services are provided. This would be the Agency.Site element (note this type of Site would have SiteService children).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#SiteService -->
+
+    <owl:Class rdf:about="https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#SiteService">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">SiteService is the smallest unit describing a &quot;service&quot; that is offered at a Site. It can be thought of as the intersection of a Site and a Taxonomy code (or related Taxonomy codes) and meta data about what is offered. A &quot;Service&quot; however is not represented as its own element because the &quot;Service&quot; cannot exist without a location (the site).</rdfs:comment>
     </owl:Class>
 </rdf:RDF>
 

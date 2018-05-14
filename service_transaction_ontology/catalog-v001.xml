@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1526054629533" name="http://hslynk.com/ontologies/service_transaction" uri="service_transaction.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1526258223087" name="http://hslynk.com/ontologies/service_transaction" uri="service_transaction.owl"/>
     </group>
 </catalog>
