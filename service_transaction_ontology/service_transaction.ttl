@@ -1,0 +1,250 @@
+@prefix : <http://hslynk.com/ontologies/service_transaction#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ns: <http://www.w3.org/2006/vcard/ns#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix hsst: <http://hslynk.com/ontologies/service_transaction#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@base <http://hslynk.com/ontologies/service_transaction> .
+
+<http://hslynk.com/ontologies/service_transaction> rdf:type owl:Ontology ;
+                                                    owl:versionIRI <http://hslynk.com/ontologies/service_transaction/v0.1.0> ;
+                                                    owl:imports dc: ,
+                                                                <https://raw.githubusercontent.com/airs-linked-data/lov/v0.0.11/src/airs_vocabulary.ttl#> ;
+                                                    owl:versionInfo "v0.1.0"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://hslynk.com/ontologies/service_transaction#hasNeedStatus
+hsst:hasNeedStatus rdf:type owl:ObjectProperty .
+
+
+###  http://hslynk.com/ontologies/service_transaction#hasNeedStatusValue
+hsst:hasNeedStatusValue rdf:type owl:ObjectProperty .
+
+
+###  http://hslynk.com/ontologies/service_transaction#hasReferral
+hsst:hasReferral rdf:type owl:ObjectProperty .
+
+
+###  http://hslynk.com/ontologies/service_transaction#hasTaxonomyClassification
+hsst:hasTaxonomyClassification rdf:type owl:ObjectProperty .
+
+
+###  http://hslynk.com/ontologies/service_transaction#hasTaxonomyName
+hsst:hasTaxonomyName rdf:type owl:ObjectProperty ;
+                     dc:title "Taxonomy Name which the associated Taxonomy Code is a member of."@en ;
+                     terms:description "Can be one of the property value names, or a new name, if it is not in the existing list of available named taxonomies."@en .
+
+
+###  http://hslynk.com/ontologies/service_transaction#hasTaxonomyValue
+hsst:hasTaxonomyValue rdf:type owl:ObjectProperty ;
+                      terms:description "The encoded value of the taxonomy term"@en .
+
+
+###  http://hslynk.com/ontologies/service_transaction#providedBy
+hsst:providedBy rdf:type owl:ObjectProperty .
+
+
+###  http://hslynk.com/ontologies/service_transaction#referredTo
+hsst:referredTo rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://hslynk.com/ontologies/service_transaction#dateEffective
+hsst:dateEffective rdf:type owl:DatatypeProperty .
+
+
+###  http://hslynk.com/ontologies/service_transaction#dateProvided
+hsst:dateProvided rdf:type owl:DatatypeProperty .
+
+
+###  http://hslynk.com/ontologies/service_transaction#dateReferred
+hsst:dateReferred rdf:type owl:DatatypeProperty .
+
+
+###  http://hslynk.com/ontologies/service_transaction#providedDirectly
+hsst:providedDirectly rdf:type owl:DatatypeProperty ;
+                      terms:description "Indicates if the service transaction is provided by the SiteService, and not referred out."^^rdfs:Literal .
+
+
+###  http://hslynk.com/ontologies/service_transaction#taxonomyValue
+hsst:taxonomyValue rdf:type owl:DatatypeProperty .
+
+
+###  http://hslynk.com/ontologies/service_transaction#userID
+hsst:userID rdf:type owl:DatatypeProperty .
+
+
+###  http://purl.org/dc/elements/1.1/created
+dc:created rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://hslynk.com/ontologies/service_transaction#NeedIdentifiction
+hsst:NeedIdentifiction rdf:type owl:Class ;
+                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                         owl:onProperty hsst:hasNeedStatus ;
+                                         owl:allValuesFrom hsst:NeedStatusValue
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty hsst:hasTaxonomyClassification ;
+                                         owl:allValuesFrom hsst:TaxonomyClassification
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty hsst:userID ;
+                                         owl:someValuesFrom rdfs:Literal
+                                       ] .
+
+
+###  http://hslynk.com/ontologies/service_transaction#NeedStatus
+hsst:NeedStatus rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty hsst:hasNeedStatusValue ;
+                                  owl:allValuesFrom hsst:NeedStatusValue
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty hsst:dateEffective ;
+                                  owl:someValuesFrom rdfs:Literal
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty hsst:userID ;
+                                  owl:someValuesFrom rdfs:Literal
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty dc:created ;
+                                  owl:someValuesFrom rdfs:Literal
+                                ] .
+
+
+###  http://hslynk.com/ontologies/service_transaction#NeedStatusValue
+hsst:NeedStatusValue rdf:type owl:Class .
+
+
+###  http://hslynk.com/ontologies/service_transaction#Referral
+hsst:Referral rdf:type owl:Class ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty hsst:referredTo ;
+                                owl:someValuesFrom <https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#Service>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty hsst:referredTo ;
+                                owl:someValuesFrom <https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#SiteService>
+                              ] .
+
+
+###  http://hslynk.com/ontologies/service_transaction#ServiceTransaction
+hsst:ServiceTransaction rdf:type owl:Class ;
+                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                          owl:onProperty hsst:providedBy ;
+                                          owl:someValuesFrom <https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#SiteService>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty hsst:hasReferral ;
+                                          owl:allValuesFrom hsst:Referral
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty hsst:hasTaxonomyClassification ;
+                                          owl:allValuesFrom hsst:TaxonomyClassification
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty hsst:dateProvided ;
+                                          owl:someValuesFrom xsd:dateTimeStamp
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty hsst:userID ;
+                                          owl:someValuesFrom rdfs:Literal
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty dc:created ;
+                                          owl:someValuesFrom xsd:dateTimeStamp
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty hsst:providedDirectly ;
+                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:boolean
+                                        ] ;
+                        dc:title "Service Transaction"@en ;
+                        terms:description "An activity performed on behalf of a foaf:Person or org:FormalOrganization"@en .
+
+
+###  http://hslynk.com/ontologies/service_transaction#TaxonomyClassification
+hsst:TaxonomyClassification rdf:type owl:Class ;
+                            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                              owl:onProperty hsst:hasTaxonomyName ;
+                                              owl:allValuesFrom hsst:TaxonomyName
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty hsst:taxonomyValue ;
+                                              owl:someValuesFrom rdfs:Literal
+                                            ] ;
+                            dc:title "Taxonomy Classification"@en ;
+                            terms:description "A reference to any code from any taxonomy."@en .
+
+
+###  http://hslynk.com/ontologies/service_transaction#TaxonomyName
+hsst:TaxonomyName rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://hslynk.com/ontologies/service_transaction#airs
+hsst:airs rdf:type owl:NamedIndividual ,
+                   hsst:TaxonomyName .
+
+
+###  http://hslynk.com/ontologies/service_transaction#fully_met
+hsst:fully_met rdf:type owl:NamedIndividual ,
+                        hsst:NeedStatusValue .
+
+
+###  http://hslynk.com/ontologies/service_transaction#icd-10
+hsst:icd-10 rdf:type owl:NamedIndividual ,
+                     hsst:TaxonomyName .
+
+
+###  http://hslynk.com/ontologies/service_transaction#in_process
+hsst:in_process rdf:type owl:NamedIndividual ,
+                         hsst:NeedStatusValue .
+
+
+###  http://hslynk.com/ontologies/service_transaction#open_eligibility
+hsst:open_eligibility rdf:type owl:NamedIndividual ,
+                               hsst:TaxonomyName .
+
+
+###  http://hslynk.com/ontologies/service_transaction#unmet
+hsst:unmet rdf:type owl:NamedIndividual ,
+                    hsst:NeedStatusValue .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+owl:topDataProperty terms:description "Indicates if the service transaction is referred out to another SiteService, and not provided directly."^^rdfs:Literal .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
