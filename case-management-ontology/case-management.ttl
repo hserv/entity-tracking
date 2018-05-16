@@ -28,17 +28,16 @@ dct:description rdf:type owl:AnnotationProperty .
 :hasMilestone rdf:type owl:ObjectProperty .
 
 
+###  http://hslynk.com/ontologies/case-management#hasNeedIdentification
+:hasNeedIdentification rdf:type owl:ObjectProperty .
+
+
 ###  http://hslynk.com/ontologies/case-management#hasNote
 :hasNote rdf:type owl:ObjectProperty .
 
 
 ###  http://hslynk.com/ontologies/case-management#hasPlan
 :hasPlan rdf:type owl:ObjectProperty .
-
-
-###  http://hslynk.com/ontologies/case-management#hasServiceTransaction
-:hasServiceTransaction rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf owl:topObjectProperty .
 
 
 ###  http://hslynk.com/ontologies/case-management#hasStep
@@ -53,16 +52,16 @@ dct:description rdf:type owl:AnnotationProperty .
 #    Data properties
 #################################################################
 
+###  http://hslynk.com/ontologies/case-management#created
+:created rdf:type owl:DatatypeProperty .
+
+
 ###  http://hslynk.com/ontologies/case-management#milestoneName
 :milestoneName rdf:type owl:DatatypeProperty .
 
 
 ###  http://hslynk.com/ontologies/case-management#targetAchievementDate
 :targetAchievementDate rdf:type owl:DatatypeProperty .
-
-
-###  http://hslynk.com/ontologies/case-management#dct:created
-:created rdf:type owl:DatatypeProperty .
 
 
 ###  http://purl.org/dc/terms/title
@@ -109,12 +108,12 @@ dct:title rdf:type owl:DatatypeProperty .
 ###  http://hslynk.com/ontologies/case-management#Milestone
 :Milestone rdf:type owl:Class ;
            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasNote ;
-                             owl:someValuesFrom :Note
+                             owl:onProperty :hasNeedIdentification ;
+                             owl:someValuesFrom st:NeedIdentification
                            ] ,
                            [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasServiceTransaction ;
-                             owl:someValuesFrom st:ServiceTransaction
+                             owl:onProperty :hasNote ;
+                             owl:someValuesFrom :Note
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :created ;
@@ -146,6 +145,10 @@ dct:title rdf:type owl:DatatypeProperty .
                         owl:someValuesFrom xsd:dateTimeStamp
                       ] ;
       dct:description "An identified course of action to reach a goal." .
+
+
+###  http://hslynk.com/ontologies/service_transaction#NeedIdentification
+st:NeedIdentification rdf:type owl:Class .
 
 
 ###  http://hslynk.com/ontologies/service_transaction#ServiceTransaction

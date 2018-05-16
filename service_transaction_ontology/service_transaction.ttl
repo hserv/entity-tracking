@@ -147,24 +147,28 @@ dc:created rdf:type owl:DatatypeProperty .
 #    Classes
 #################################################################
 
-###  http://hslynk.com/ontologies/service_transaction#NeedIdentifiction
-hsst:NeedIdentifiction rdf:type owl:Class ;
-                       rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                         owl:onProperty hsst:hasServiceTransaction ;
-                                         owl:someValuesFrom hsst:ServiceTransaction
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty hsst:hasNeedStatus ;
-                                         owl:allValuesFrom hsst:NeedStatusValue
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty hsst:hasTaxonomyClassification ;
-                                         owl:allValuesFrom hsst:TaxonomyClassification
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty hsst:userID ;
-                                         owl:someValuesFrom rdfs:Literal
-                                       ] .
+###  http://hslynk.com/ontologies/service_transaction#NeedIdentification
+hsst:NeedIdentification rdf:type owl:Class ;
+                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                          owl:onProperty hsst:hasServiceTransaction ;
+                                          owl:someValuesFrom hsst:ServiceTransaction
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty hsst:providedBy ;
+                                          owl:someValuesFrom <https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#SiteService>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty hsst:hasNeedStatus ;
+                                          owl:allValuesFrom hsst:NeedStatusValue
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty hsst:hasTaxonomyClassification ;
+                                          owl:allValuesFrom hsst:TaxonomyClassification
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty hsst:userID ;
+                                          owl:someValuesFrom rdfs:Literal
+                                        ] .
 
 
 ###  http://hslynk.com/ontologies/service_transaction#NeedStatus
