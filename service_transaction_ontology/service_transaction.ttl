@@ -83,6 +83,10 @@ hsst:hasNeedStatusValue rdf:type owl:ObjectProperty .
 hsst:hasReferral rdf:type owl:ObjectProperty .
 
 
+###  http://hslynk.com/ontologies/service_transaction#hasServiceTransaction
+hsst:hasServiceTransaction rdf:type owl:ObjectProperty .
+
+
 ###  http://hslynk.com/ontologies/service_transaction#hasTaxonomyClassification
 hsst:hasTaxonomyClassification rdf:type owl:ObjectProperty .
 
@@ -146,6 +150,10 @@ dc:created rdf:type owl:DatatypeProperty .
 ###  http://hslynk.com/ontologies/service_transaction#NeedIdentifiction
 hsst:NeedIdentifiction rdf:type owl:Class ;
                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                         owl:onProperty hsst:hasServiceTransaction ;
+                                         owl:someValuesFrom hsst:ServiceTransaction
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
                                          owl:onProperty hsst:hasNeedStatus ;
                                          owl:allValuesFrom hsst:NeedStatusValue
                                        ] ,
@@ -300,8 +308,8 @@ dc: terms:publisher <http://purl.org/dc/aboutdcmi#DCMI> ;
 
 
 dc:contributor rdfs:label "Contributor"@en ;
-               terms:hasVersion <http://dublincore.org/usage/terms/history/#contributor-006> ;
                <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+               terms:hasVersion <http://dublincore.org/usage/terms/history/#contributor-006> ;
                rdfs:comment "An entity responsible for making contributions to the resource."@en ;
                terms:description "Examples of a Contributor include a person, an organization, or a service. Typically, the name of a Contributor should be used to indicate the entity."@en ;
                terms:modified "2008-01-14"^^xsd:date ;
@@ -372,8 +380,8 @@ dc:identifier terms:hasVersion <http://dublincore.org/usage/terms/history/#ident
 dc:language terms:modified "2008-01-14"^^xsd:date ;
             terms:issued "1999-07-02"^^xsd:date ;
             <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-            terms:hasVersion <http://dublincore.org/usage/terms/history/#language-007> ;
             rdfs:label "Language"@en ;
+            terms:hasVersion <http://dublincore.org/usage/terms/history/#language-007> ;
             terms:description "Recommended best practice is to use a controlled vocabulary such as RFC 4646 [RFC4646]."@en ;
             rdfs:isDefinedBy dc: ;
             rdfs:comment "A language of the resource."@en ;
