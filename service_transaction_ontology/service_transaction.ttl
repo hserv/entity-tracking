@@ -1,6 +1,7 @@
 @prefix : <http://hslynk.com/ontologies/service_transaction#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix ns: <http://www.w3.org/2006/vcard/ns#> .
+@prefix dbo: <http://dbpedia.org/ontology#> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -13,8 +14,8 @@
 @base <http://hslynk.com/ontologies/service_transaction> .
 
 <http://hslynk.com/ontologies/service_transaction> rdf:type owl:Ontology ;
-                                                    owl:versionIRI <http://hslynk.com/ontologies/service_transaction/v0.1.0> ;
-                                                    owl:versionInfo "v0.1.0"@en .
+                                                    owl:versionIRI <http://hslynk.com/ontologies/service_transaction/v0.1.1> ;
+                                                    owl:versionInfo "v0.1.1"@en .
 
 #################################################################
 #    Annotation properties
@@ -102,6 +103,10 @@ hsst:hasTaxonomyValue rdf:type owl:ObjectProperty ;
                       terms:description "The encoded value of the taxonomy term"@en .
 
 
+###  http://hslynk.com/ontologies/service_transaction#onBehalfOf
+hsst:onBehalfOf rdf:type owl:ObjectProperty .
+
+
 ###  http://hslynk.com/ontologies/service_transaction#providedBy
 hsst:providedBy rdf:type owl:ObjectProperty .
 
@@ -156,11 +161,19 @@ owl:topDataProperty terms:description "Indicates if the service transaction is r
 #    Classes
 #################################################################
 
+###  http://dbpedia.org/ontology/Person
+<http://dbpedia.org/ontology/Person> rdf:type owl:Class .
+
+
 ###  http://hslynk.com/ontologies/service_transaction#NeedIdentification
 hsst:NeedIdentification rdf:type owl:Class ;
                         rdfs:subClassOf [ rdf:type owl:Restriction ;
                                           owl:onProperty hsst:hasServiceTransaction ;
                                           owl:someValuesFrom hsst:ServiceTransaction
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty hsst:onBehalfOf ;
+                                          owl:someValuesFrom <http://dbpedia.org/ontology/Person>
                                         ] ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty hsst:providedBy ;
@@ -211,6 +224,10 @@ hsst:NeedStatusValue rdf:type owl:Class .
 ###  http://hslynk.com/ontologies/service_transaction#Referral
 hsst:Referral rdf:type owl:Class ;
               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty hsst:onBehalfOf ;
+                                owl:someValuesFrom <http://dbpedia.org/ontology/Person>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
                                 owl:onProperty hsst:referredTo ;
                                 owl:someValuesFrom <https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#Service>
                               ] ,
@@ -227,6 +244,10 @@ hsst:Referral rdf:type owl:Class ;
 ###  http://hslynk.com/ontologies/service_transaction#ServiceTransaction
 hsst:ServiceTransaction rdf:type owl:Class ;
                         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                          owl:onProperty hsst:onBehalfOf ;
+                                          owl:someValuesFrom <http://dbpedia.org/ontology/Person>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
                                           owl:onProperty hsst:providedBy ;
                                           owl:someValuesFrom <https://raw.githubusercontent.com/airs-linked-data/lov/latest/src/airs_vocabulary.ttl#SiteService>
                                         ] ,
@@ -260,7 +281,7 @@ hsst:ServiceTransaction rdf:type owl:Class ;
                                           owl:onDataRange xsd:boolean
                                         ] ;
                         dc:title "Service Transaction"@en ;
-                        terms:description "An activity performed on behalf of a foaf:Person or org:FormalOrganization"@en .
+                        terms:description "An activity performed on behalf of a dbo:Person or org:FormalOrganization"@en .
 
 
 ###  http://hslynk.com/ontologies/service_transaction#TaxonomyClassification
