@@ -25,10 +25,6 @@ dct:description rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
-###  http://hslynk.com/ontologies/case-management#createdFor
-:createdFor rdf:type owl:ObjectProperty .
-
-
 ###  http://hslynk.com/ontologies/case-management#hasGoal
 :hasGoal rdf:type owl:ObjectProperty .
 
@@ -51,6 +47,10 @@ dct:description rdf:type owl:AnnotationProperty .
 
 ###  http://hslynk.com/ontologies/case-management#hasStep
 :hasStep rdf:type owl:ObjectProperty .
+
+
+###  http://hslynk.com/ontologies/case-management#onBehalfOf
+:onBehalfOf rdf:type owl:ObjectProperty .
 
 
 #################################################################
@@ -84,16 +84,16 @@ dct:title rdf:type owl:DatatypeProperty .
 ###  http://hslynk.com/ontologies/case-management#Case
 :Case rdf:type owl:Class ;
       rdfs:subClassOf [ rdf:type owl:Restriction ;
-                        owl:onProperty :createdFor ;
-                        owl:someValuesFrom <http://dbpedia.org/ontology/Person>
-                      ] ,
-                      [ rdf:type owl:Restriction ;
                         owl:onProperty :hasGoal ;
                         owl:someValuesFrom :Goal
                       ] ,
                       [ rdf:type owl:Restriction ;
                         owl:onProperty :hasNote ;
                         owl:someValuesFrom :Note
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :onBehalfOf ;
+                        owl:someValuesFrom <http://dbpedia.org/ontology/Person>
                       ] ,
                       [ rdf:type owl:Restriction ;
                         owl:onProperty :created ;
